@@ -8,6 +8,7 @@ import os
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+import openai
 
 # Function to send email reminder
 def send_email_reminder(receiver_email, subject, date, time):
@@ -99,6 +100,22 @@ if submitted:
         if sent:
             st.success("📧 Email reminder sent!")
 
+    # AI-generated questions based on what was learned
+    if what_learned:
+        st.markdown("### 🤖 AI-Generated Questions")
+        try:
+            openai.api_key = st.secrets["OPENAI_API_KEY"]
+            prompt = f"Generate 3 short comprehension questions based on this study summary:\n{what_learned}"
+            response = openai.Completion.create(
+                engine="text-davinci-003",
+                prompt=prompt,
+                max_tokens=100
+            )
+            questions = response.choices[0].text.strip()
+            st.info(questions)
+        except Exception as e:
+            st.warning("AI question generation failed. Please check your OpenAI key or internet connection.")
+
 # -- Filter logs --
 st.subheader("🔍 Search Study Logs")
 search_term = st.text_input("Enter subject or date (YYYY-MM-DD)")
@@ -155,6 +172,12 @@ if not df.empty:
         else:
             st.success("✅ You're on track! Keep up the momentum!")
 
+        subject_avg = df.groupby("Subject")["Hours Studied"].mean()
+        lowest = subject_avg.idxmin()
+        highest = subject_avg.idxmax()
+        st.markdown(f"📌 You've spent the least time on **{lowest}**. Consider allocating more focus there.")
+        st.markdown(f"✅ You're doing great in **{highest}** — keep it up!")
+
     try:
         st.write("### 🔍 Correlation Heatmap Explanation")
         st.markdown("This heatmap shows the relationship between numerical variables in your study log. A strong positive correlation (closer to +1) means they rise together, while negative (closer to -1) means as one increases, the other decreases. It's a quick way to uncover patterns in your habits.")
@@ -167,4 +190,4 @@ if not df.empty:
 
 # -- Footer --
 st.markdown("---")
-st.caption("Made with ❤️ by Salim. Track your progress, stay consistent, and never stop learning!")
+st.caption("Developed by Salim Yahuza Gwarjo, a Data Science fellow of 3MTT Cohort 3. Fellowship ID: FE/23/61894589. For inquiries, please contact salimyahuza@gmail.com")
