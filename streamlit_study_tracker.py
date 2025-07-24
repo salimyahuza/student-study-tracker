@@ -50,7 +50,8 @@ else:
     df = pd.DataFrame(columns=['Date', 'Subject', 'Hours Studied', 'What You Learned', 'Challenges Faced'])
 
 # App Layout
-st.set_page_config(page_title="📚 Student Study Tracker", layout="centered")
+st.set_page_config(page_title="📚 Student Study Tracker", layout="centered", page_icon="https://raw.githubusercontent.com/salimyahuza/StudySprint-Tracker/main/Logo.jpg")
+st.image("https://raw.githubusercontent.com/salimyahuza/StudySprint-Tracker/main/Logo.jpg", width=100)
 st.title("📚 Student Study Tracker")
 
 # -- Load motivational quotes --
@@ -77,6 +78,8 @@ with st.form("log_form"):
     hours = st.number_input("Hours Studied", min_value=0.0, step=0.5)
     what_learned = st.text_area("What did you learn today?")
     challenges = st.text_area("Any challenges?")
+    email = st.text_input("Optional: Enter your email to receive a study reminder")
+    reminder_time = st.time_input("Set Reminder Time (Optional)")
     submitted = st.form_submit_button("Save Entry")
 
 if submitted:
@@ -90,6 +93,11 @@ if submitted:
     df = pd.concat([df, pd.DataFrame([new_entry])], ignore_index=True)
     df.to_csv(log_file, index=False)
     st.success("✅ Entry saved successfully!")
+
+    if email:
+        sent = send_email_reminder(email, subject, new_entry['Date'], reminder_time.strftime("%H:%M"))
+        if sent:
+            st.success("📧 Email reminder sent!")
 
 # -- Filter logs --
 st.subheader("🔍 Search Study Logs")
@@ -133,14 +141,23 @@ st.subheader("📄 Export Logs")
 st.download_button("Download CSV", data=df.to_csv(index=False), file_name="study_log.csv", mime="text/csv")
 
 # -- AI-powered Insight --
-st.subheader("🧠 AI Insight")
+st.subheader("🧠 AI Insights: See Your Learning Patterns")
 if not df.empty:
     if 'Hours Studied' in df.columns:
         avg_hours = df['Hours Studied'].mean()
-        st.metric(label="Average Study Hours", value=round(avg_hours, 2))
+        st.metric(label="📊 Average Study Hours per Day", value=round(avg_hours, 2))
+
+        last_7_days = df[df['Date'] >= (datetime.now() - pd.Timedelta(days=7))]
+        recent_avg = last_7_days['Hours Studied'].mean()
+        if recent_avg < avg_hours:
+            st.warning(f"⚠️ Your recent average study time ({round(recent_avg, 2)} hrs) is below your overall average.")
+            st.info("Try setting a more consistent routine or adjusting your goals!")
+        else:
+            st.success("✅ You're on track! Keep up the momentum!")
 
     try:
-        st.write("### Correlation Heatmap")
+        st.write("### 🔍 Correlation Heatmap Explanation")
+        st.markdown("This heatmap shows the relationship between numerical variables in your study log. A strong positive correlation (closer to +1) means they rise together, while negative (closer to -1) means as one increases, the other decreases. It's a quick way to uncover patterns in your habits.")
         numeric_df = df.select_dtypes(include=['float64', 'int64'])
         fig, ax = plt.subplots()
         sns.heatmap(numeric_df.corr(), annot=True, cmap="coolwarm", ax=ax)
