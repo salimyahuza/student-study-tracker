@@ -1,4 +1,4 @@
-# Student Study Tracker 🧠📊
+# Student Study Tracker 
 
 ![Logo](https://raw.githubusercontent.com/salimyahuza/StudySprint-Tracker/main/Logo.jpg)
 
@@ -14,42 +14,42 @@ Many students struggle to stay on track due to lack of personalized guidance and
 
 ## Features
 
-- 🌟 Tracks daily/weekly study goals
-- 📊 Visualizes progress with charts
-- 💬 Daily motivational quote system
-- 🖼️ Lightweight — runs on Google Colab
-- 🔗 No login, no install — easy access
-- ✅ Daily Study Logging: Input study subject, duration, and comments.
-- ✅ Search & Filter: View study sessions by subject or date range.
-- ✅ Calendar Heatmap: Visualize consistency with a daily calendar heatmap.
-- ✅ Study Summary: See total study time and logs per subject.
-- ✅ Download Logs: Export your full log as a CSV file.
-- ✅ Email Reminders (Optional): Send yourself reminder emails using SMTP.
-- ✅ Google Calendar Integration (Optional & Disabled by Default): Add sessions directly to your Google Calendar (requires setup).
+- Tracks daily/weekly study goals
+- Visualizes progress with charts
+- Daily motivational quote system
+- Lightweight — runs on Google Colab
+- No login, no install — easy access
+- Daily Study Logging: Input study subject, duration, and comments.
+- Search & Filter: View study sessions by subject or date range.
+- Calendar Heatmap: Visualize consistency with a daily calendar heatmap.
+- Study Summary: See total study time and logs per subject.
+- Download Logs: Export your full log as a CSV file.
+- Email Reminders (Optional): Send yourself reminder emails using SMTP.
+- Google Calendar Integration (Optional & Disabled by Default): Add sessions directly to your Google Calendar (requires setup).
 
-## 🤖 AI-Powered Insight (v1.0)
+## AI-Powered Insight (v1.0)
 
 - Calculates your **average study time**
 - Detects recent dips or improvements in study patterns
 - Flags **subjects needing attention**
 - Suggests adjustments to help you stay on track
 
-## 🚧 What’s Coming Next?
+## What’s Coming Next?
 This app is a minimum viable product, and several powerful features will be introduced in future versions:
 
-🤖 AI Chatbot for interactive Q&A and study help
+AI Chatbot for interactive Q&A and study help
 
-📚 AI-assisted Reading Comprehension (auto-generating questions & summaries)
+AI-assisted Reading Comprehension (auto-generating questions & summaries)
 
-🗓️ Calendar Integration for automated scheduling
+Calendar Integration for automated scheduling
 
-🧠 Smarter insights from long-term learning trends
+Smarter insights from long-term learning trends
 
-## 🚀 Quick Start
-▶️ On Streamlit Cloud
+## Quick Start
+On Streamlit Cloud
 Just open the app online — no install needed.
 
-## 💻 Local Setup
+## Local Setup
 ### Clone the repo:
 
 git clone https://github.com/salimyahuza/student-study-tracker.git
@@ -65,7 +65,7 @@ pip install -r requirements.txt
 streamlit run streamlit_study_tracker.py
 
 
-## 🛠️ Built With
+## Built With
 Python
 
 Streamlit
@@ -78,9 +78,9 @@ GitHub
 
 SMTP (Email)
 
-## 🔔 Optional Reminder Features
+## Optional Reminder Features
 
-### 📦 Files
+### Files
 
 **streamlit_study_tracker.py**: Main app script
 
@@ -90,7 +90,7 @@ SMTP (Email)
 
 **Logo.jpg**: App branding logo
 
-### 📨 Email Reminder via SMTP
+### Email Reminder via SMTP
 
 You can enable email reminders by setting up your email credentials.
 
@@ -104,7 +104,7 @@ Python code:
 send_email_reminder("salimyahuza@gmail.com", "Deep Learning with PyTorch", "2025-07-25", "10:00")
 
 
-## 📅 Google Calendar Integration (Disabled by Default)
+## Google Calendar Integration (Disabled by Default)
 
 If you want to sync reminders to Google Calendar:
 1. Create a project in Google Cloud Console.
@@ -120,7 +120,7 @@ add_study_reminder("Python Programming", "2025-07-23", "20:00", duration_minutes
 
 MIT License
 
-## 🙋‍♂️ Author
+## Author
 **Name**: Salim Yahuza Gwarjo
 
 **3MTT Fellowship ID**: FE/23/61894589
@@ -143,5 +143,5 @@ MIT License
 
 
 
-## 🙏 Acknowledgements
+## Acknowledgements
 I want to thank our tutors for their mentorship, hardwork and patience. Their guidance enabled me to develop this app as part of the 3MTT Knowledge Showcase – July Edition. Thank you 3MTT, thank you Darey, thank you panel of Judges (competiton team) and thank you fellow leaners!
