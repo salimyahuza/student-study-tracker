@@ -8,7 +8,6 @@ import os
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-import openai
 
 # Function to send email reminder
 def send_email_reminder(receiver_email, subject, date, time):
@@ -99,26 +98,6 @@ if submitted:
         sent = send_email_reminder(email, subject, new_entry['Date'], reminder_time.strftime("%H:%M"))
         if sent:
             st.success("\U0001F4E7 Email reminder sent!")
-
-    # AI-generated questions based on what was learned
-    if what_learned and len(what_learned) > 30:
-        st.markdown("### \U0001F916 AI-Generated Questions")
-        try:
-            openai.api_key = st.secrets["OPENAI_API_KEY"]
-            response = openai.ChatCompletion.create(
-                model="gpt-3.5-turbo",
-                messages=[
-                    {"role": "system", "content": "You are a helpful education assistant."},
-                    {"role": "user", "content": f"Generate 3 short comprehension questions based on this study summary:\n{what_learned}"}
-                ],
-                max_tokens=200
-            )
-            questions = response.choices[0].message["content"].strip()
-            st.info(questions)
-        except Exception as e:
-            st.warning("AI question generation failed. Please check your OpenAI key or internet connection.")
-    elif what_learned:
-        st.warning("✏️ Please write a more detailed summary (at least 30 characters) to receive AI-generated questions.")
 
 # -- Filter logs --
 st.subheader("🔍 Search Study Logs")
