@@ -92,12 +92,16 @@ Logo.jpg: App branding logo
 📨 Email Reminder via SMTP
 
 You can enable email reminders by setting up your email credentials.
-For Gmail users:
+
+
+### For Gmail users:
+
 Enable 2-Step Verification and create an App Password.
 
 Python code:
 
 send_email_reminder("salimyahuza@gmail.com", "Deep Learning with PyTorch", "2025-07-25", "10:00")
+
 
 ## 📅 Google Calendar Integration (Disabled by Default)
 
