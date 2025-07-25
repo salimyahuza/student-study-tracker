@@ -80,16 +80,17 @@ SMTP (Email)
 
 ## 🔔 Optional Reminder Features
 
-📦 Files
-streamlit_study_tracker.py: Main app script
+### 📦 Files
 
-study_log.csv: Stores your study history
+**streamlit_study_tracker.py**: Main app script
 
-.streamlit/secrets.toml: For secure credentials
+**study_log.csv**: Stores your study history
 
-Logo.jpg: App branding logo
+**.streamlit/secrets.toml**: For secure credentials
 
-📨 Email Reminder via SMTP
+**Logo.jpg**: App branding logo
+
+### 📨 Email Reminder via SMTP
 
 You can enable email reminders by setting up your email credentials.
 
