@@ -27,25 +27,64 @@ Many students struggle to stay on track due to lack of personalized guidance and
 - ✅ Email Reminders (Optional): Send yourself reminder emails using SMTP.
 - ✅ Google Calendar Integration (Optional & Disabled by Default): Add sessions directly to your Google Calendar (requires setup).
 
+## 🤖 AI-Powered Insight (v1.0)
+
+- Calculates your **average study time**
+- Detects recent dips or improvements in study patterns
+- Flags **subjects needing attention**
+- Suggests adjustments to help you stay on track
+
+## 🚧 What’s Coming Next?
+This app is a minimum viable product, and several powerful features will be introduced in future versions:
+
+🤖 AI Chatbot for interactive Q&A and study help
+
+📚 AI-assisted Reading Comprehension (auto-generating questions & summaries)
+
+🗓️ Calendar Integration for automated scheduling
+
+🧠 Smarter insights from long-term learning trends
+
 ## 🚀 Quick Start
+▶️ On Streamlit Cloud
+Just open the app online — no install needed.
 
-1. Open the Colab notebook.
-2. Log your study sessions by subject and time.
-3. Track your daily tasks with helpful summaries.
-4. Get inspired by your daily quote.
-5. Watch your progress with visualizations and heatmap!
-6. Optionally, set reminders via email or Google Calendar.
+## 💻 Local Setup
+Clone the repo:
+
+git clone https://github.com/salimyahuza/student-study-tracker.git
+cd student-study-tracker
+Install requirements:
+
+pip install -r requirements.txt
+Run the app:
+
+streamlit run streamlit_study_tracker.py
 
 
-## Built With
-- Python
-- Pandas
-- Matplotlib
-- Google Colab
-- GitHub
+## 🛠️ Built With
+Python
+
+Streamlit
+
+Pandas
+
+Seaborn / Matplotlib
+
+GitHub
+
+SMTP (Email)
 
 ## 🔔 Optional Reminder Features
 
+📦 Files
+streamlit_study_tracker.py: Main app script
+
+study_log.csv: Stores your study history
+
+.streamlit/secrets.toml: For secure credentials
+
+Logo.jpg: App branding logo
 
 📨 Email Reminder via SMTP
 
@@ -67,23 +106,6 @@ If you want to sync reminders to Google Calendar:
 python
 add_study_reminder("Python Programming", "2025-07-23", "20:00", duration_minutes=90)
 
-## 📦 Requirements
-
-Install these once:
-
-python
-
-!pip install calmap
-
-!pip install --upgrade google-auth google-auth-oauthlib google-auth-httplib2 google-api-python-client
-
-## 📁 Files
-
-study_log.csv: Stores the saved study logs.
-
-token.pickle: (If Google Calendar is used) Stores OAuth tokens.
-
-credentials.json: (User-supplied) Google credentials file.
 
 
 ## License
