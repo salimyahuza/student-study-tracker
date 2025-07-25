@@ -50,16 +50,17 @@ This app is a minimum viable product, and several powerful features will be intr
 Just open the app online — no install needed.
 
 ## 💻 Local Setup
-Clone the repo:
+### Clone the repo:
 
 git clone https://github.com/salimyahuza/student-study-tracker.git
 
 cd student-study-tracker
 
-Install requirements:
+### Install requirements:
 
 pip install -r requirements.txt
-Run the app:
+
+### Run the app:
 
 streamlit run streamlit_study_tracker.py
 
