@@ -101,7 +101,7 @@ if submitted:
             st.success("\U0001F4E7 Email reminder sent!")
 
     # AI-generated questions based on what was learned
-    if what_learned:
+    if what_learned and len(what_learned) > 30:
         st.markdown("### \U0001F916 AI-Generated Questions")
         try:
             openai.api_key = st.secrets["OPENAI_API_KEY"]
@@ -117,6 +117,8 @@ if submitted:
             st.info(questions)
         except Exception as e:
             st.warning("AI question generation failed. Please check your OpenAI key or internet connection.")
+    elif what_learned:
+        st.warning("✏️ Please write a more detailed summary (at least 30 characters) to receive AI-generated questions.")
 
 # -- Filter logs --
 st.subheader("🔍 Search Study Logs")
