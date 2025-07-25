@@ -53,7 +53,9 @@ Just open the app online — no install needed.
 Clone the repo:
 
 git clone https://github.com/salimyahuza/student-study-tracker.git
+
 cd student-study-tracker
+
 Install requirements:
 
 pip install -r requirements.txt
