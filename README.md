@@ -78,9 +78,7 @@ GitHub
 
 SMTP (Email)
 
-## Optional Reminder Features
-
-### Files
+## Files
 
 **streamlit_study_tracker.py**: Main app script
 
@@ -89,6 +87,9 @@ SMTP (Email)
 **.streamlit/secrets.toml**: For secure credentials
 
 **Logo.jpg**: App branding logo
+
+
+## Optional Reminder Features
 
 ### Email Reminder via SMTP
 
@@ -99,7 +100,7 @@ You can enable email reminders by setting up your email credentials.
 
 Enable 2-Step Verification and create an App Password.
 
-Python code:
+**Python code**:
 
 send_email_reminder("salimyahuza@gmail.com", "Deep Learning with PyTorch", "2025-07-25", "10:00")
 
@@ -121,6 +122,7 @@ add_study_reminder("Python Programming", "2025-07-23", "20:00", duration_minutes
 MIT License
 
 ## Author
+
 **Name**: Salim Yahuza Gwarjo
 
 **3MTT Fellowship ID**: FE/23/61894589
@@ -144,4 +146,5 @@ MIT License
 
 
 ## Acknowledgements
+
 I want to thank our tutors for their mentorship, hardwork and patience. Their guidance enabled me to develop this app as part of the 3MTT Knowledge Showcase – July Edition. Thank you 3MTT, thank you Darey, thank you panel of Judges (competiton team) and thank you fellow leaners!
